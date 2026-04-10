@@ -26,10 +26,12 @@ const MainHeader = () => {
 
   let newStr = "";
 
-  for (const s of user) {
-    newStr += s;
-    if (s === "@") {
-      break;
+  if (user && typeof user === "string") {
+    for (const s of user) {
+      newStr += s;
+      if (s === "@") {
+        break;
+      }
     }
   }
   const truncatedString = newStr.replace("@", "");

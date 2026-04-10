@@ -8,7 +8,7 @@ import { useGetRealEstateNewsQuery } from "../../redux/services/newsCatcher";
 
 const Blog = () => {
   const { data, isFetching, error } = useGetRealEstateNewsQuery();
-  const resData = data?.articles.slice(0, 4);
+  const resData = data?.articles ? data.articles.slice(0, 4) : [];
 
   const mappedList = resData?.map((blog) => {
     return (
@@ -47,7 +47,7 @@ const Blog = () => {
         <ul className="flex justify-center flex-col lg:flex-row my-6">
           {isFetching && <Loader />}
           {!isFetching && !error && mappedList}
-          {!isFetching && mappedList.length === 0 && <Error />}
+          {!isFetching && (!mappedList || mappedList.length === 0) && <Error />}
         </ul>
       </section>
     </Fragment>

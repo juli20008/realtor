@@ -10,7 +10,7 @@ const Properties = () => {
   const { data, isFetching, error } = useGetProperyListQuery();
 
   console.log(data?.hits);
-  const propertiesData = data?.hits.slice(0, 4);
+  const propertiesData = data?.hits ? data.hits.slice(0, 4) : [];
 
   const mappedList = propertiesData?.map((property) => {
     return (

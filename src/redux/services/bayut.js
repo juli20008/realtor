@@ -16,7 +16,7 @@ export const bayutApi = createApi({
 
   endpoints: (builder) => ({
     getProperyList: builder.query({
-      query: () => `/properties/list/?locationExternalIDs=${(5002, 6020)}`,
+      query: () => `/properties/list/?locationExternalIDs=5002,6020`,
     }),
     getProperyDetails: builder.query({
       query: (id) => `/properties/detail?externalID=${id}`,
